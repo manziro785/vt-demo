@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>О кооперативе — Он-Арча</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&display=swap">
+<script>
+  // Тема, выбранная на главной странице (если браузер дал сохранить).
+  try { var t = localStorage.getItem('onarcha-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
+<style>
+  /* Эта страница — обычный HTML без React и без JavaScript-анимаций.
+     Переход с главной сюда и обратно делает браузер по одному правилу: */
+  @view-transition { navigation: auto; }
+
+  :root {
+    --bg: #F3F2EF; --surface: #FFFFFF; --fg: #1B1716; --muted: #6E6763; --line: #DEDAD3;
+    --red: #8E1D18; --herb: #4D6B44; --vt-dur: 350ms;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg: #161312; --surface: #1F1B1A; --fg: #EFEAE6; --muted: #A59D98; --line: #35302D; --red: #D2524A; --herb: #93B888; color-scheme: dark; }
+  }
+  :root[data-theme="dark"] { --bg: #161312; --surface: #1F1B1A; --fg: #EFEAE6; --muted: #A59D98; --line: #35302D; --red: #D2524A; --herb: #93B888; color-scheme: dark; }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.6 "Onest", "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .top { position: sticky; top: 0; z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); view-transition-name: header; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+  .top .wrap { display: flex; align-items: center; gap: 28px; height: 64px; }
+  .brand { font-weight: 700; font-size: 19px; letter-spacing: .02em; color: var(--red); text-decoration: none; white-space: nowrap; }
+  .brand span { font-weight: 400; color: var(--muted); font-size: 14px; letter-spacing: 0; margin-left: 8px; }
+  .back { margin-left: auto; color: var(--muted); text-decoration: none; }
+  .back:hover { color: var(--fg); }
+  main { padding-block: 32px 72px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 48px; align-items: start; }
+  .photo { aspect-ratio: 1 / 1; overflow: hidden; border-radius: 4px; view-transition-name: hero-photo; }
+  .photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .eyebrow { color: var(--herb); font-size: 13px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; margin: 0 0 12px; }
+  h1 { font-size: clamp(32px, 4.4vw, 50px); font-weight: 600; letter-spacing: -.03em; line-height: 1.1; margin: 0 0 20px; text-wrap: balance; view-transition-name: about-title; }
+  p { margin: 0 0 14px; max-width: 58ch; }
+  .muted { color: var(--muted); }
+  .facts { list-style: none; padding: 0; margin: 24px 0; display: grid; gap: 10px; border-top: 1px solid var(--line); padding-top: 18px; }
+  .facts li::before { content: "— "; color: var(--herb); }
+  .note { margin-top: 28px; padding: 16px 18px; background: var(--surface); border-left: 3px solid var(--red); font-size: 14px; }
+  .note code { font-family: ui-monospace, Consolas, monospace; font-size: 13px; background: var(--bg); padding: 1px 6px; border-radius: 4px; }
+  .cta { display: inline-block; margin-top: 8px; background: var(--red); color: #FFF7F3; text-decoration: none; padding: 14px 28px; border-radius: 99px; font-weight: 600; }
+  :focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) {
+    animation-duration: var(--vt-dur); animation-timing-function: cubic-bezier(.2, .7, .2, 1);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
+  }
+  @media (max-width: 760px) { main { grid-template-columns: 1fr; gap: 24px; } }
+</style>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="./">Он-Арча<span>мясная лавка</span></a>
+      <a class="back" href="./">← В магазин</a>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="photo"><img src="hero-about.webp" alt="Стейк рибай на каменной доске с чесноком и розмарином"></div>
+    <div>
+      <p class="eyebrow">О кооперативе</p>
+      <h1>Он-Арча — кооператив из Нарынского района</h1>
+      <p>Мы объединяем фермеров, которые держат скот на высокогорных пастбищах. Животные пасутся на свободном выгуле, а мясо приходит к вам охлаждённым, без заморозки.</p>
+      <p class="muted">Текст-заглушка для демо: детали о кооперативе здесь условные.</p>
+      <ul class="facts">
+        <li>Говядина, як и баранина от своих хозяйств</li>
+        <li>Разделка под заказ: стейки, плов, шашлык, бешбармак</li>
+        <li>Доставка рефрижератором по всем областям</li>
+      </ul>
+      <a class="cta" href="./">Перейти в каталог</a>
+      <div class="note">
+        Эта страница — отдельный HTML-документ без React. Переход сюда и обратно делает браузер:
+        на обеих страницах есть правило <code>@view-transition { navigation: auto; }</code>,
+        а у фото одинаковое имя <code>view-transition-name: hero-photo</code>.
+      </div>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,44 @@
+/* Сброс, типографика и общие классы, которые используются в нескольких слоях. */
+* { box-sizing: border-box; }
+html { scroll-padding-top: 90px; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.55 "Onest", "Helvetica Neue", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+h1, h2, h3 { margin: 0; line-height: 1.12; text-wrap: balance; }
+p, dl, dd { margin: 0; }
+img { display: block; max-width: 100%; }
+.num { font-variant-numeric: tabular-nums; }
+.muted { color: var(--muted); }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+/* контейнер: шапка, страница, подвал */
+.top-inner, .page, .foot-inner { max-width: 1160px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+
+/* page */
+.page { display: block; padding-block: 32px 72px; }
+.page-title { font-size: 34px; font-weight: 600; letter-spacing: -.025em; }
+.eyebrow { color: var(--herb); font-size: 13px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+.section-head { display: grid; gap: 8px; margin-bottom: 22px; }
+.row-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px; }
+.row-head > div { display: grid; gap: 8px; }
+.section-title { font-size: clamp(26px, 3.2vw, 36px); font-weight: 600; letter-spacing: -.025em; }
+.section-sub { color: var(--muted); max-width: 56ch; }
+.total { display: flex; justify-content: space-between; font-size: 18px; }
+
+/* buttons */
+.buy { border: 1px solid var(--red); background: var(--red); color: var(--on-red); padding: 14px 30px; font-weight: 600; border-radius: 99px; }
+.buy:hover:not(:disabled) { filter: brightness(1.08); }
+.ghost { border: 1px solid var(--line); background: var(--surface); padding: 14px 24px; border-radius: 99px; }
+.buy:disabled, .ghost:disabled { opacity: .35; cursor: default; }
+.link-btn { border: 0; background: none; color: var(--muted); padding: 4px 0; text-decoration: underline; text-underline-offset: 3px; font-size: 14px; }
+.link-btn:hover { color: var(--fg); }
+/* кнопка-«пилюля»: фильтры каталога и вкладки животных в разделке */
+.filter { border: 1px solid var(--line); background: var(--surface); padding: 7px 14px; border-radius: 99px; color: var(--fg); font-size: 14px; }
+.filter:hover { border-color: var(--fg); }
+.filter[aria-pressed="true"], .filter[aria-selected="true"] { background: var(--ink); border-color: var(--ink); color: var(--on-ink); }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; }
+
+@media (max-width: 560px) {
+  .page-title { font-size: 28px; }
+}

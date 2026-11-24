@@ -1,0 +1,10 @@
+.item { min-width: 0; }
+.item-btn { all: unset; box-sizing: border-box; cursor: pointer; display: grid; gap: 3px; width: 100%; }
+.item-btn:focus-visible { outline: 2px solid var(--red); outline-offset: 4px; }
+.photo { aspect-ratio: 1 / 1; max-width: 100%; overflow: hidden; background: var(--surface); margin-bottom: 10px; border-radius: 4px; }
+.photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.item-btn:hover .photo img { transform: scale(1.04); }
+.item-kind { color: var(--muted); font-size: 13px; }
+.item-title { font-weight: 600; font-size: 17px; width: fit-content; }
+.item-price { font-size: 15px; }
+@media (max-width: 560px) { .item-title { font-size: 15px; } }

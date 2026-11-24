@@ -1,0 +1,12 @@
+.foot { border-top: 1px solid var(--line); view-transition-name: footer; }
+.foot-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; padding-block: 28px 40px; font-size: 14px; }
+.foot-inner > div { display: grid; gap: 6px; max-width: 520px; }
+.foot-brand { font-weight: 700; color: var(--red); }
+.foot-controls { align-content: start; }
+.foot-warn { color: var(--red); }
+.foot-links { display: flex; flex-wrap: wrap; gap: 16px; }
+.foot-links a { color: var(--muted); text-underline-offset: 3px; font-size: 14px; }
+.foot-links a:hover { color: var(--fg); }
+.support-line { color: var(--muted); font-size: 13px; max-width: 360px; }
+.support-line .ok { color: var(--herb); }
+.support-line .no { color: var(--red); }

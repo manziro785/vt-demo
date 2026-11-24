@@ -1,0 +1,4 @@
+.catalog { margin-bottom: 88px; }
+.grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 32px 20px; }
+.empty { color: var(--muted); padding: 24px 0; }
+@media (max-width: 560px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 12px; } }

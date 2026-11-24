@@ -1,0 +1,21 @@
+.cuts { margin-bottom: 88px; }
+.animal-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
+.cuts-body { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 32px; align-items: start; }
+.chart-frame { background: var(--surface); border-radius: 4px; padding: 16px; overflow: hidden; }
+.chart { display: block; width: 100%; height: auto; }
+.chart .head, .chart .fringe { fill: var(--head); }
+.chart .part { fill: var(--part); stroke: var(--part-line); stroke-width: 3; stroke-linejoin: round; cursor: pointer; transition: fill .2s; outline: none; }
+.chart .part:hover { fill: #D9B9AE; }
+.chart .part.on { fill: var(--part-on); }
+.chart .part:focus-visible { stroke: var(--fg); }
+.part-frame { display: grid; gap: 18px; }
+.part-card { background: var(--surface); border-radius: 4px; padding: 24px; display: grid; gap: 10px; border-left: 4px solid var(--red); }
+.part-animal { color: var(--muted); font-size: 13px; }
+.part-name { font-size: 28px; font-weight: 600; letter-spacing: -.02em; }
+.part-facts { display: grid; gap: 12px; padding-top: 6px; }
+.part-facts dt { color: var(--herb); font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+.part-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { border: 1px solid var(--line); background: none; padding: 5px 11px; border-radius: 99px; font-size: 13px; color: var(--muted); }
+.chip:hover { color: var(--fg); border-color: var(--fg); }
+.chip[aria-pressed="true"] { color: var(--red); border-color: var(--red); }
+@media (max-width: 860px) { .cuts-body { grid-template-columns: 1fr; } }

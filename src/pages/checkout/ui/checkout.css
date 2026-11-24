@@ -1,0 +1,19 @@
+.checkout { max-width: 720px; display: grid; gap: 24px; min-height: 60vh; }
+.steps-head { display: grid; gap: 12px; }
+.steps-labels { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; font-size: 14px; color: var(--muted); }
+.steps-labels .is-done { color: var(--fg); }
+.progress { height: 3px; background: var(--line); }
+.progress-bar { height: 100%; background: var(--red); }
+.step-frame { overflow: hidden; }
+.step-body { min-height: 260px; display: grid; gap: 14px; align-content: start; }
+.cart-list { list-style: none; margin: 0; padding: 0; }
+.cart-list li { display: grid; grid-template-columns: 56px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.form { display: grid; gap: 14px; max-width: 440px; }
+.field { display: grid; gap: 6px; font-size: 14px; color: var(--muted); }
+.field input, .field select { font: inherit; color: var(--fg); background: var(--surface); border: 1px solid var(--line); padding: 11px 12px; border-radius: 4px; }
+.field input:focus, .field select:focus { outline: none; border-color: var(--fg); }
+.radio { display: flex; gap: 10px; align-items: center; }
+.done { display: grid; gap: 6px; padding-top: 20px; }
+.done-title { font-size: 26px; font-weight: 600; }
+.step-actions { display: flex; justify-content: space-between; }
+@media (max-width: 560px) { .steps-labels { font-size: 12px; } }

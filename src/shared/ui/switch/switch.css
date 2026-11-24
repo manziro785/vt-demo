@@ -1,0 +1,7 @@
+.anim-switch { border: 0; background: none; display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: 14px; padding: 0; }
+.anim-switch:hover { color: var(--fg); }
+.switch-track { width: 32px; height: 18px; border-radius: 9px; background: var(--line); position: relative; transition: background .2s; }
+.switch-knob { position: absolute; top: 2px; left: 2px; width: 14px; height: 14px; border-radius: 50%; background: var(--surface); box-shadow: 0 1px 2px rgb(0 0 0 / .2); transition: transform .2s; }
+.anim-switch[aria-checked="true"] .switch-track { background: var(--herb); }
+.anim-switch[aria-checked="true"] .switch-knob { transform: translateX(14px); }
+@media (max-width: 760px) { .anim-switch { font-size: 13px; } }

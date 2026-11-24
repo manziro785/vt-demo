@@ -1,0 +1,25 @@
+/* view-transition-name: header — шапка не участвует в общем кроссфейде страницы,
+   в том числе при переходе на about.html, где у шапки то же имя. */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); border-bottom: 1px solid var(--line); view-transition-name: header; }
+.top-inner { display: flex; align-items: center; gap: 28px; height: 64px; }
+.brand { all: unset; cursor: pointer; font-weight: 700; font-size: 19px; letter-spacing: .02em; display: flex; align-items: baseline; gap: 8px; color: var(--red); white-space: nowrap; }
+.brand:focus-visible { outline: 2px solid var(--red); outline-offset: 4px; }
+.brand-sub { font-weight: 400; color: var(--muted); font-size: 14px; letter-spacing: 0; }
+.nav { display: flex; gap: 22px; }
+.nav-link { border: 0; background: none; padding: 6px 0; color: var(--muted); }
+.nav-link:hover { color: var(--fg); }
+a.nav-link { text-decoration: none; }
+.top-actions { margin-left: auto; display: flex; align-items: center; gap: 18px; }
+.cart-btn { border: 1px solid var(--line); background: var(--surface); border-radius: 99px; padding: 7px 8px 7px 16px; display: inline-flex; align-items: center; gap: 10px; }
+.cart-btn:hover { border-color: var(--fg); }
+.count-wrap { position: relative; display: inline-grid; }
+.count { display: inline-grid; place-items: center; min-width: 24px; height: 24px; padding: 0 7px; border-radius: 12px; background: var(--red); color: var(--on-red); font-size: 12px; font-weight: 600; }
+
+@media (max-width: 760px) {
+  .nav { display: none; }
+}
+@media (max-width: 560px) {
+  .brand-sub { display: none; }
+  .top-inner { gap: 12px; }
+  .top-actions { gap: 12px; }
+}

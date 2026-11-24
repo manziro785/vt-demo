@@ -1,0 +1,56 @@
+/* ===== View Transitions =====
+   Все правила ::view-transition-* — здесь, глобально. Их нельзя переносить в CSS Modules:
+   имена классов (from-right, drawer-in…) передаются в <ViewTransition> строкой и не должны хэшироваться. */
+
+/* Переходы между страницами (главная ↔ about.html) — одной строкой */
+@view-transition { navigation: auto; }
+
+/* Смена темы: круг раскрывается поверх, без кроссфейда.
+   Именованные элементы на это время отключаем, чтобы они раскрывались вместе с корнем. */
+html.theme-switching::view-transition-old(root),
+html.theme-switching::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+html.theme-switching .top,
+html.theme-switching .foot,
+html.theme-switching .hero-photo { view-transition-name: none; }
+
+::view-transition-group(*),
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation-duration: var(--vt-dur);
+  animation-timing-function: cubic-bezier(.2, .7, .2, 1);
+}
+
+@keyframes vt-from-right { from { transform: translateX(60px); opacity: 0; } }
+@keyframes vt-from-left { from { transform: translateX(-60px); opacity: 0; } }
+@keyframes vt-to-left { to { transform: translateX(-60px); opacity: 0; } }
+@keyframes vt-to-right { to { transform: translateX(60px); opacity: 0; } }
+@keyframes vt-pop { 0% { transform: scale(.6); } 60% { transform: scale(1.35); } 100% { transform: scale(1); } }
+@keyframes vt-rise { from { transform: translateY(14px); opacity: 0; } }
+@keyframes vt-sink { to { transform: translateY(-10px); opacity: 0; } }
+@keyframes vt-fade-in { from { opacity: 0; } }
+@keyframes vt-fade-out { to { opacity: 0; } }
+@keyframes vt-drawer-in { from { transform: translateX(100%); } }
+@keyframes vt-drawer-out { to { transform: translateX(100%); } }
+
+::view-transition-new(.from-right) { animation-name: vt-from-right; }
+::view-transition-new(.from-left) { animation-name: vt-from-left; }
+::view-transition-old(.to-left) { animation-name: vt-to-left; }
+::view-transition-old(.to-right) { animation-name: vt-to-right; }
+::view-transition-new(.pop) { animation-name: vt-pop; }
+::view-transition-old(.pop) { animation: none; opacity: 0; }
+::view-transition-new(.part-in) { animation-name: vt-rise; }
+::view-transition-old(.part-in), ::view-transition-old(.part-out) { animation-name: vt-sink; }
+::view-transition-new(.fade-in) { animation-name: vt-fade-in; }
+::view-transition-old(.fade-out) { animation-name: vt-fade-out; }
+::view-transition-new(.drawer-in) { animation-name: vt-drawer-in; }
+::view-transition-old(.drawer-out) { animation-name: vt-drawer-out; }
+
+/* Полёт в корзину: дольше обычного, с разгоном */
+::view-transition-group(cart-fly) { animation-duration: calc(var(--vt-dur) * 2.2); animation-timing-function: cubic-bezier(.55, 0, .3, 1); z-index: 100; }
+::view-transition-old(cart-fly), ::view-transition-new(cart-fly) { animation-duration: calc(var(--vt-dur) * 2.2); }
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) { animation: none !important; }
+}

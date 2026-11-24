@@ -1,0 +1,3 @@
+.theme-btn { border: 0; background: none; padding: 0; color: var(--muted); font-size: 14px; }
+.theme-btn:hover { color: var(--fg); }
+@media (max-width: 760px) { .theme-btn { display: none; } }

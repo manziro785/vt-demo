@@ -1,0 +1,4 @@
+/* Глобальные стили. Стили компонентов лежат рядом с ними в своих слайсах. */
+@import './tokens.css';
+@import './base.css';
+@import './view-transitions.css';

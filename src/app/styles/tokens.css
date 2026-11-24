@@ -1,0 +1,22 @@
+/* Мясная лавка «Он-Арча»: светлый «каменный» фон, тёмно-красный акцент, зелень розмарина. */
+:root {
+  --bg: #F3F2EF; --surface: #FFFFFF; --sunk: #E9E7E2; --fg: #1B1716; --muted: #6E6763; --line: #DEDAD3;
+  --ink: #1B1716; --on-ink: #FAF8F5; --red: #8E1D18; --on-red: #FFF7F3; --herb: #4D6B44;
+  --part: #E4D6CF; --part-on: #8E1D18; --part-line: #F3F2EF; --head: #CFC8C2;
+  --vt-dur: 350ms;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #161312; --surface: #1F1B1A; --sunk: #2A2523; --fg: #EFEAE6; --muted: #A59D98; --line: #35302D;
+    --ink: #EFEAE6; --on-ink: #161312; --red: #D2524A; --on-red: #1B0F0E; --herb: #93B888;
+    --part: #3B302C; --part-on: #D2524A; --part-line: #161312; --head: #2E2825;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #161312; --surface: #1F1B1A; --sunk: #2A2523; --fg: #EFEAE6; --muted: #A59D98; --line: #35302D;
+  --ink: #EFEAE6; --on-ink: #161312; --red: #D2524A; --on-red: #1B0F0E; --herb: #93B888;
+  --part: #3B302C; --part-on: #D2524A; --part-line: #161312; --head: #2E2825;
+  color-scheme: dark;
+}
